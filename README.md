@@ -27,3 +27,4 @@ _In this project, our aim is to create a wearable device equipped with a camera 
 - [Envision Smart Glasses](https://www.forbes.com/sites/gusalexiou/2021/01/28/envision-ai-glasses--a-game-changer-in-helping-blind-people-master-their-environment/)
 - [Seeing AI App](https://news.microsoft.com/apac/2020/12/03/seeing-ai-empowers-people-who-are-blind-or-with-low-vision-for-everyday-life/)
 - [A Deep Learning-Based Object Detection System for Blind People](https://link.springer.com/chapter/10.1007/978-981-16-1773-7_18)
+- [How to calculate the distance between the camera and an object using Computer Vision?](https://ai.stackexchange.com/questions/25074/how-to-calculate-the-distance-between-the-camera-and-an-object-using-computer-vi)
