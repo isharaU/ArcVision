@@ -13,9 +13,13 @@ _In this project, our aim is to create a wearable device equipped with a camera 
 ### Architecture
 ![Architecture of the ArcVision](https://github.com/isharaU/ArcVision/blob/main/Images/architecture.png)
 ### Tasks List
+- [ ] Refer the references
 - [ ] Learn openCV
-- [ ] Code the algorithm
 - [ ] Select Hardware
+- [ ] Code the algorithm
+- [ ] Implement
+- [ ] Test
+
 
 ### References
 - [eSight](https://www.esighteyewear.com/)
