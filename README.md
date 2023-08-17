@@ -15,7 +15,7 @@ _In this project, our aim is to create a wearable device equipped with a camera 
 - Rassberry pi Microcontroller
   > Performing complex machine learning algorithms and requiring immediate results
 - Sterio Camera
-  > ![Why can't we use a rassberry pi camera module](https://docs.google.com/document/d/1UW0fPGseMeiKDFwk3Caq2dskWpHHFVXj_GJ2kVx7RAQ/edit?usp=sharing)
+  > [Why can't we use a rassberry pi camera module](https://docs.google.com/document/d/1UW0fPGseMeiKDFwk3Caq2dskWpHHFVXj_GJ2kVx7RAQ/edit?usp=sharing)
   
 ### Architecture
 ![Architecture of the ArcVision](https://github.com/isharaU/ArcVision/blob/main/Images/architecture.png)
