@@ -6,24 +6,29 @@ _In this project, our aim is to create a wearable device equipped with a camera 
 ### Functional Requirements
 - The user can receive a description of the environment by holding down the button on the device.
 - The device should be large enough to be easily located by touch.
+- User can perceive the environment according to the vibrators 
 
 ### Non-Functional Requirements
 - The battery should last for at least 12 hours.
-- The microcontroller should generate instructions within one second.
+- The microcontroller should generate instructions within 500 mili second.
 
 ### Hardware
-- Rassberry pi Microcontroller
+- ESP32 Module
   > Performing complex machine learning algorithms and requiring immediate results
-- Sterio Camera
-  > [Why can't we use a rassberry pi camera module](https://docs.google.com/document/d/1UW0fPGseMeiKDFwk3Caq2dskWpHHFVXj_GJ2kVx7RAQ/edit?usp=sharing)
+- OV2640 Camera Module
+  > How 2D Camera module measure the depth
+  > ![Video Stream](https://github.com/isharaU/ArcVision/blob/main/Images/Video%20Stream.png)
   
 ### Architecture
-![Architecture of the ArcVision](https://github.com/isharaU/ArcVision/blob/main/Images/architecture.png)
+  > ![Architecture of the ArcVision](https://github.com/isharaU/ArcVision/blob/main/Images/architecture.png)
+
+### Hardware
+  > ![Hardware](https://github.com/isharaU/ArcVision/blob/main/Images/Hardware.png)
 
 ### Tasks List
 - [x] Refer the references
-- [ ] Learn openCV
-- [ ] Select Hardware
+- [x] Learn openCV
+- [x] Select Hardware
 - [ ] Code the algorithm
 - [ ] Implement
 - [ ] Test
