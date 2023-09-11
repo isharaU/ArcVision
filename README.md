@@ -47,6 +47,7 @@ _As you walk, ArcVision continuously scans the environment using its sonar senso
 
 ## Demo
 #### Video and images demonstrating the project in action will be included here.
+https://github.com/isharaU/ArcVision/assets/125251580/67810cfd-1d4c-4e08-9209-3853a0610246
 
 ## Clone the Repository
 #### To get started with ArcVision and explore the project's source code, follow these steps to clone the repository to your local development environment.
