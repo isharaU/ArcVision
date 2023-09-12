@@ -57,7 +57,7 @@ Click the "Fork" button at the top right corner of the [ArcVision repository pag
  1. **Clone Your Forked Repository** <br>
 _Once you have forked the project, you can clone your fork to your local machine using Git. Replace "your-username" with your GitHub user name._
 ```ruby
-git clone https://github.com/your-username/ArcVision.git
+git clone https://github.com/isharaU/ArcVision.git
 ```
  3. **Access the Project Directory** <br>
 _Move into the project directory._
