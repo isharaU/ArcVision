@@ -1,9 +1,9 @@
 from gpiozero import DistanceSensor
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 # set GPIO mode
-GPIO.setMODE(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
 # set GPIO pins
 trig = 17
