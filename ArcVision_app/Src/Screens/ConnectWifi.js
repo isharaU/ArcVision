@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import LoadingScreen from "./LoadingScreen";
+import { useNavigation } from "@react-navigation/native";
 
 
 const ConnectWifi = () => {
   const [obstacle, setObstacle] = useState(null);
+  const navigation = useNavigation();
 
   const fetcheValueFromNodeMcu = async () => {
     try {
-      const response = await fetch(`http://112.568.698`);
-      const data = await response.text();
+    //   const response = await fetch(`http://112.568.698`);
+      // const data = await response.text();
+      const data = "1";
       setObstacle(data);
+
+      if (data == "1") {
+        navigation.navigate("LoadingScreen");
+      }
+
+ 
      
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
