@@ -2,10 +2,9 @@
 ## Obstacle Detection and Object Recognition Device for People with Vision Impairments
 _Arc Vision empowers visually impaired individuals through two core components: the Arc Vision App and Glove. The app, built with React Native Expo, connects seamlessly to the Glove, equipped with sonar sensors and an action button. Users can capture images, receive image recognition descriptions, and send quick emergency alerts. With Wi-Fi connectivity and customizable settings, Arc Vision enhances independence and security for the visually impaired._
 
-## Data Collection
-_Hi, I'm a 3rd year student at the University of Moratuwa Sri Lanka. I'm developing a device to help visually impaired people navigate through obstacles, and I need your help.
-This survey aims to gather information from individuals who know visually impaired persons. Your responses will help me to understand their ability to use smartphones and their potential interest in using a device  to enhance their mobility and safety.
-<br> <br>
+## Usability Survey
+_The usability of this device with a smartphone may be difficult to assess because visually impaired people may not be able to use a smartphone. To address this challenge, I conducted a survey to gather feedback from people who know visually impaired people.
+<br>
 Reading time : Less than 3 minutes_
 
 - [Kindly participate in the survey by clicking on the provided link.](https://docs.google.com/forms/d/e/1FAIpQLScswZ6K9khgDUv91IlPMREqCc3p0st4eBmHLQdbLN4Y1sMjbw/viewform?usp=sf_link)
