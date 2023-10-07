@@ -31,7 +31,7 @@ try:
         if distance >= 50:
             print("Danger")
             GPIO.output(vibrate, GPIO.LOW)                                    
-        if ((distance < 30) and (distance > 0)):
+        if ((distance < 50) and (distance > 0)):
             print("Obstacle detected")
             GPIO.output(vibrate, GPIO.HIGH)
         else:
