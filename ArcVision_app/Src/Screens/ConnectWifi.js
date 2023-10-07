@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import LoadingScreen from "./LoadingScreen";
+
 
 const ConnectWifi = () => {
   const [obstacle, setObstacle] = useState(null);
@@ -9,13 +11,17 @@ const ConnectWifi = () => {
       const response = await fetch(`http://112.568.698`);
       const data = await response.text();
       setObstacle(data);
+     
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
+
     }
   };
 
   useEffect(() => {
     fetcheValueFromNodeMcu();
+    
+    
   }, []);
 
   return (
@@ -27,6 +33,7 @@ const ConnectWifi = () => {
       >
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
+      
     </View>
   );
 };
