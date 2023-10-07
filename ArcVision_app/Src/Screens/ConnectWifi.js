@@ -10,12 +10,11 @@ const ConnectWifi = () => {
 
   const fetcheValueFromNodeMcu = async () => {
     try {
-    //   const response = await fetch(`http://112.568.698`);
-      // const data = await response.text();
-      const data = "1";
+      const response = await fetch(`http://112.568.698`);
+      const data = await response.text();
       setObstacle(data);
 
-      if (data == "1") {
+      if (data !== null && data !== undefined && data !== '') {
         navigation.navigate("LoadingScreen");
       }
 
@@ -35,7 +34,7 @@ const ConnectWifi = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>ArcVision{obstacle}</Text>
+      <Text style={styles.header}>WelCome{obstacle}</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={fetcheValueFromNodeMcu}
