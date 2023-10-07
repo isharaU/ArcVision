@@ -1,49 +1,76 @@
 # ArcVision
 ## Obstacle Detection and Object Recognition Device for People with Vision Impairments
-_ArcVision is a device designed to enhance the mobility and safety of individuals with vision impairments. This innovative wand-like device empowers users to navigate their surroundings confidently by providing real-time obstacle detection and feedback._
+_Arc Vision empowers visually impaired individuals through two core components: the Arc Vision App and Glove. The app, built with React Native Expo, connects seamlessly to the Glove, equipped with sonar sensors and an action button. Users can capture images, receive image recognition descriptions, and send quick emergency alerts. With Wi-Fi connectivity and customizable settings, Arc Vision enhances independence and security for the visually impaired._
 
+## Data Collection
+_Hi, I'm a 3rd year student at the University of Moratuwa Sri Lanka. I'm developing a device to help visually impaired people navigate through obstacles, and I need your help.
+This survey aims to gather information from individuals who know visually impaired persons. Your responses will help me to understand their ability to use smartphones and their potential interest in using a device  to enhance their mobility and safety.
+<br> <br>
+Reading time : Less than 3 minutes_
+
+- [Kindly participate in the survey by clicking on the provided link.](https://docs.google.com/forms/d/e/1FAIpQLScswZ6K9khgDUv91IlPMREqCc3p0st4eBmHLQdbLN4Y1sMjbw/viewform?usp=sf_link)
+- [Please click on the provided link to view the results.](https://docs.google.com/spreadsheets/d/18eGguSmHQaHVkyON_fmgkVyNy7yxjhFAgRzveZI3zvw/edit?usp=sharing)
+  
 ## Overview
 #### Project Goals
 ArcVision's main objective is to:
- + **Enhance Independence:** <br> _Offer an alternative to traditional white canes for the visually impaired, promoting greater autonomy and mobility._
- + **Obstacle Detection**: <br> _Utilize cutting-edge technology, including sonar sensors and a camera module, to detect obstacles in the user's path._
- + **Immediate Feedback:** <br> _Provide instant feedback through Bluetooth earphones and a built-in vibrator, ensuring users are aware of obstacles in their proximity._
- + **Ground Level Detection:** <br> _Incorporate IR sensors on the device's lower section to identify ground-level obstacles or changes._
-#### How it Works
-ArcVision combines sophisticated hardware and software components:
- + **Sonar Sensor:** <br> _Utilizes sound waves to measure distances, identifying obstacles in front of the user._
- + **Camera Module:** <br> _Captures images of the user's surroundings, allowing for more detailed obstacle recognition._
- + **Bluetooth Connectivity:** <br> _Sends obstacle alerts to a paired Bluetooth earphone for auditory feedback._
- + **Vibrator Feedback:** <br> _Offers tactile feedback through a built-in vibrator._
- + **IR Sensors:** <br> _Detects ground-level obstacles or changes to ensure safe navigation._
-#### Impact
-_ArcVision has the potential to significantly improve the daily lives of individuals with vision impairments. It provides a dependable and user-friendly means of detecting obstacles, empowering them to confidently navigate their environment. This not only reduces the likelihood of accidents but also elevates their overall quality of life._
+ + Create seamless Wi-Fi connectivity between the mobile app and the Arc Vision Glove.
+ + Enable users to capture images using the app's camera functionality.
+ + Implement image recognition technology to generate textual descriptions of captured images.
+ + Facilitate rapid location-based emergency alerts to pre-saved mobile contacts.
+ + Equip the Arc Vision Glove with a sonar sensor to detect obstacles.
+ + Ensure real-time communication between the Glove and the mobile app for obstacle detection and emergency alerts.
+ + Enhance the mobility and safety of visually impaired individuals by combining technology and real-time communication.
 
-## Features
-#### ArcVision has a variety of features to help individuals with visual impairments in their daily lives.
- 1. **Obstacle Detection** <br>
- _ArcVision employs sonar sensors and a video camera module to detect obstacles in real time. Users can confidently move through their environment with the assurance that potential obstructions will be identified._
- 1. **Immediate Feedback** <br>
- _Upon detecting an obstacle, ArcVision provides immediate feedback to the user through two distinct channels. An integrated Bluetooth connection allows the device to communicate with a paired earphone, delivering auditory alerts about the presence and location of obstacles. In addition to auditory feedback, ArcVision features a built-in vibrator that provides tactile alerts, enhancing the user's awareness of obstacles._
- 1. **Ground Level Block Detection** <br>
- _To further enhance safety, ArcVision includes two Infrared (IR) sensors on the lower section of the body. These sensors are dedicated to identifying ground-level obstacles or changes in terrain, ensuring a smooth and obstacle-free journey._
- 1. **User-Friendly Design** <br>
- _Compact and Portable: The device is compact, measuring between 20 to 30 cm in length, making it easy to carry and handle._
- 1. **Enhanced Mobility and Independence** <br>
+## Key Features
+
+1. **Seamless Connectivity**
+   - The Arc Vision App initiates a Wi-Fi connection to the Arc Vision Glove, establishing a seamless link between the user and the wearable device.
+
+2. **Real-time Obstacle Detection**
+   - Equipped with sonar sensors and video camera modules, Arc Vision detects obstacles in real time, providing users with the assurance they need to navigate their surroundings confidently.
+
+3. **Immediate Feedback**
+   - Upon detecting obstacles, Arc Vision offers immediate feedback through dual channels. A Bluetooth connection pairs with earphones to deliver auditory alerts regarding obstacle presence and location. Simultaneously, a built-in vibrator provides tactile alerts, enhancing user awareness.
+
+4. **User-Friendly Design**
+   - Compact and Portable: The Arc Vision Glove is designed for convenience, with a compact form factor measuring between 20 to 30 cm in length, making it easy to carry and handle.
+
+5. **Enhanced Mobility and Independence**
+   - By providing reliable obstacle detection and immediate feedback, Arc Vision empowers individuals with vision impairments to move independently, boosting their confidence and overall quality of life.
+
+Arc Vision is dedicated to revolutionizing the daily experiences of visually impaired individuals, allowing them to navigate the world with newfound independence and security.
 _By providing reliable obstacle detection and immediate feedback, ArcVision empowers individuals with vision impairments to move independently, boosting their confidence and overall quality of life._
 
 ## Usage
-#### ArcVision is designed to be user-friendly and intuitive, ensuring individuals with vision impairments can easily incorporate it into their daily routines. Here's how to use ArcVision effectively
-+  **Power On** <br>
-_Press and hold the power button to turn on ArcVision. You will hear an initialization sound, indicating that the device is ready to use._
-+  **Hold Comfortably** <br>
-_Hold ArcVision like a wand, with the grip in your hand. Ensure that the camera module is facing forward, allowing it to capture your surroundings._
-+  **Start Walking** <br>
-_As you walk, ArcVision continuously scans the environment using its sonar sensor and camera module._
-+  **Power Off** <br>
- _To conserve battery life, simply press and hold the power button again to turn off ArcVision when you're done using it._
-+  **Maintenance** <br>
-  _It's essential to keep the camera lens and sensors clean for optimal performance. Regularly wipe them with a soft, lint-free cloth._
+
+Arc Vision App and Glove are designed with user-friendliness in mind, ensuring individuals with visual impairments can easily integrate them into their daily routines. Here's how to effectively use Arc Vision:
+
+1. **Connect to Glove**
+   - Open the Arc Vision App and tap the "Connect" button to establish a Wi-Fi connection with the Arc Vision Glove. Wait for the successful connection notification.
+
+2. **Navigate Through App**
+   - Once connected, you can navigate through the app using buttons or touch screen gestures.
+
+3. **Capture Images**
+   - In the "Camera" section, use the app's camera to capture images of your surroundings.
+
+4. **Generate Image Descriptions**
+   - Arc Vision's image recognition technology will generate textual descriptions of captured images, which are read aloud to you for understanding.
+
+5. **Send Emergency Alerts**
+   - In the "Emergency" section, you can send location-based emergency alerts to pre-saved mobile contacts via SMS.
+
+6. **Customize Settings**
+   - Customize app settings, including configuring your emergency contact information, in the "Settings" section.
+
+7. **Glove Features**
+   - The Arc Vision Glove features a sonar sensor to detect obstacles and a push button for user-initiated actions.
+     
+8. **Initiate Emergency Signal**
+   - Press the glove's push button for 5 seconds to initiate an emergency signal, sending your location details to your emergency contact.
+
+By following these steps, you can effectively use the Arc Vision App and Glove to enhance your independence and safety in daily life.
 
 ## Demo
 #### Video and images demonstrating the project in action will be included here.
@@ -71,8 +98,8 @@ cd ArcVision
 #### ArcVision is made possible with the invaluable support of various tools, technologies, and the contributions of the open-source community. I extend my sincere gratitude to the following
 +  **Arduino** <br>
 _This project heavily relies on the Arduino platform for hardware control and interfacing. Arduino provides an accessible and versatile environment for building innovative solutions._
-+  **OpenCV (Open Source Computer Vision Library)** <br>
-_OpenCV is an integral component of ArcVision, serving as the backbone for image processing, computer vision, and obstacle detection. I deeply appreciative of the OpenCV community for their continuous advancements in computer vision technology._
++  **React Native Expo** <br>
+_React Native Expo is a fundamental element of the ArcVision project, acting as a robust framework for developing the mobile application. It provides a streamlined development environment, simplifying the creation of cross-platform apps for both iOS and Android. We extend our gratitude to the React Native Expo community for their contributions to the world of mobile app development._
 
 ## Contact
 #### I appreciate your interest in ArcVision. If you have questions, suggestions, or would like to get involved in our project, please don't hesitate to reach out to me. I welcome your feedback and collaboration
