@@ -10,7 +10,7 @@ const ConnectWifi = () => {
 
   const fetcheValueFromNodeMcu = async () => {
     try {
-      const response = await fetch(`http://112.568.698`);
+      const response = await fetch(`http://192.168.43.207`);
       const data = await response.text();
       setObstacle(data);
 
@@ -18,8 +18,6 @@ const ConnectWifi = () => {
         navigation.navigate("LoadingScreen");
       }
 
- 
-     
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
 
