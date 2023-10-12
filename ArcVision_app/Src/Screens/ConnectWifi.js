@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import LoadingScreen from "./LoadingScreen";
 import { useNavigation } from "@react-navigation/native";
-
 
 const ConnectWifi = () => {
   const [obstacle, setObstacle] = useState(null);
   const navigation = useNavigation();
 
-  const fetcheValueFromNodeMcu = async () => {
+  const fetchDataFromESP8266 = async () => {
+    console.log("1");
     try {
-      const response = await fetch(`http://192.168.43.207`);
-      const data = await response.text();
-      setObstacle(data);
-
-      if (data !== null && data !== undefined && data !== '') {
-        navigation.navigate("LoadingScreen");
+      const response = await fetch('http://192.168.43.202/sendData');
+      console.log(response);
+      if (response.ok) {
+        const data = await response.text();
+        setObstacle(data);
+        console.log("Retrieved Data");
+  
+        if (data !== null) {
+          navigation.navigate("LoadingScreen");
+        }
+      } else {
+        console.log("Response not okay. Status code: ", response.status);
       }
-
     } catch (error) {
-      console.log("Error fetching data from ArcVision", error);
-
+      console.log("Error fetching data from ESP8266", error);
     }
   };
 
   useEffect(() => {
-    fetcheValueFromNodeMcu();
-    
-    
+    fetchDataFromESP8266();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>WelCome{obstacle}</Text>
+      <Text style={styles.header}>Welcome {obstacle}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={fetcheValueFromNodeMcu}
+        onPress={fetchDataFromESP8266}
       >
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
-      
     </View>
   );
 };

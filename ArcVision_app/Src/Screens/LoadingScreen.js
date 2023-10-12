@@ -11,7 +11,7 @@ const LoadingScreen = () => {
   );
 };
 
-const App = () => {
+const Load = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Load;
