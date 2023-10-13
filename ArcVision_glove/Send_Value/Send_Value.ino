@@ -6,6 +6,8 @@ const char* password = "";
 
 ESP8266WebServer server(80);
 
+String userInput = ""; // Variable to store user input
+
 void setup() {
   Serial.begin(115200);
 
@@ -17,13 +19,10 @@ void setup() {
   }
   Serial.println("Connected to WiFi");
 
-  // Define a simple web page
-  server.on("/", HTTP_GET, []() {
-    // You can read your sensor values or any other data here
-    int sensorValue = 6;
-
-    // Send the value to the web client
-    server.send(200, "text/plain", String(sensorValue));
+  // Handle user input
+  server.on("/input", HTTP_GET, []() {
+    userInput = server.arg("data");
+    server.send(200, "text/plain", "User input received: " + userInput);
   });
 
   server.begin();
@@ -31,7 +30,8 @@ void setup() {
 }
 
 void loop() {
-  server.handleClient();
-  Serial.println(WiFi.localIP());
-  
+  server.handleClient(); // Handle incoming web requests
+  int sensorValue = 6;
+  // Send the value to the server
+  server.send(200, "text/plain", "Sensor Value: " + String(sensorValue));
 }
