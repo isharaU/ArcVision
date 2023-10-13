@@ -3,27 +3,24 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const ConnectWifi = () => {
-  const [obstacle, setObstacle] = useState(null);
+  const [connectionStatus, setConnectionStatus] = useState(false);
   const navigation = useNavigation();
 
   const fetchDataFromESP8266 = async () => {
-    console.log("1");
     try {
-      const response = await fetch('http://192.168.43.202/sendData');
+      const response = await fetch('http://192.168.43.168/trigger'); // Updated URL
       console.log(response);
       if (response.ok) {
-        const data = await response.text();
-        setObstacle(data);
-        console.log("Retrieved Data");
-  
-        if (data !== null) {
-          navigation.navigate("LoadingScreen");
-        }
+        setConnectionStatus(true); // Set the connection status to true
+        console.log("Connected to ESP8266");
+
+        // Navigate to the LoadingScreen
+        navigation.navigate("LoadingScreen");
       } else {
         console.log("Response not okay. Status code: ", response.status);
       }
     } catch (error) {
-      console.log("Error fetching data from ESP8266", error);
+      console.log("Error connecting to ESP8266", error);
     }
   };
 
@@ -33,11 +30,10 @@ const ConnectWifi = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Welcome {obstacle}</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={fetchDataFromESP8266}
-      >
+      <Text style={styles.header}>
+        {connectionStatus ? "Connected" : "Not Connected"}
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={fetchDataFromESP8266}>
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
     </View>
