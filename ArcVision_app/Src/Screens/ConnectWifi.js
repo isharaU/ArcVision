@@ -6,13 +6,13 @@ const ConnectWifi = () => {
   const [connectionStatus, setConnectionStatus] = useState(false);
   const navigation = useNavigation();
 
-  const fetchDataFromESP8266 = async () => {
+  const fetchDataFromArcVision = async () => {
     try {
       const response = await fetch('http://192.168.43.168/trigger'); // Updated URL
       console.log(response);
       if (response.ok) {
         setConnectionStatus(true); // Set the connection status to true
-        console.log("Connected to ESP8266");
+        console.log("Connected to ArcVision");
 
         // Navigate to the LoadingScreen
         navigation.navigate("LoadingScreen");
@@ -20,12 +20,12 @@ const ConnectWifi = () => {
         console.log("Response not okay. Status code: ", response.status);
       }
     } catch (error) {
-      console.log("Error connecting to ESP8266", error);
+      console.log("Error connecting to ArcVision", error);
     }
   };
 
   useEffect(() => {
-    fetchDataFromESP8266();
+    fetchDataFromArcVision();
   }, []);
 
   return (
@@ -33,7 +33,7 @@ const ConnectWifi = () => {
       <Text style={styles.header}>
         {connectionStatus ? "Connected" : "Not Connected"}
       </Text>
-      <TouchableOpacity style={styles.button} onPress={fetchDataFromESP8266}>
+      <TouchableOpacity style={styles.button} onPress={fetchDataFromArcVision}>
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
     </View>

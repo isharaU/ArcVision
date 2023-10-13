@@ -15,10 +15,9 @@ const Load = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate an asynchronous task (e.g., data fetching) here
     setTimeout(() => {
-      setIsLoading(false); // Set isLoading to false when the task is done
-    }, 3000); // Simulate a 3-second loading time
+      setIsLoading(false);
+    }, 3000);
   }, []);
 
   return (
