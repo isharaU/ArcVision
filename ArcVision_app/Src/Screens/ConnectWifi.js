@@ -1,45 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import LoadingScreen from "./LoadingScreen";
 import { useNavigation } from "@react-navigation/native";
 
-
 const ConnectWifi = () => {
-  const [obstacle, setObstacle] = useState(null);
+  const [connectionStatus, setConnectionStatus] = useState(false);
   const navigation = useNavigation();
 
-  const fetcheValueFromNodeMcu = async () => {
+  const fetchDataFromArcVision = async () => {
     try {
-      const response = await fetch(`http://192.168.43.207`);
-      const data = await response.text();
-      setObstacle(data);
+      const response = await fetch('http://192.168.43.168/trigger'); // Updated URL
+      console.log(response);
+      if (response.ok) {
+        setConnectionStatus(true); // Set the connection status to true
+        console.log("Connected to ArcVision");
 
-      if (data !== null && data !== undefined && data !== '') {
+        // Navigate to the LoadingScreen
         navigation.navigate("LoadingScreen");
+      } else {
+        console.log("Response not okay. Status code: ", response.status);
       }
-
     } catch (error) {
-      console.log("Error fetching data from ArcVision", error);
-
+      console.log("Error connecting to ArcVision", error);
     }
   };
 
   useEffect(() => {
-    fetcheValueFromNodeMcu();
-    
-    
+    fetchDataFromArcVision();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>WelCome{obstacle}</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={fetcheValueFromNodeMcu}
-      >
+      <Text style={styles.header}>
+        {connectionStatus ? "Connected" : "Not Connected"}
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={fetchDataFromArcVision}>
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
-      
     </View>
   );
 };
