@@ -1,14 +1,24 @@
 import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import * as SMS from 'expo-sms';
+import * as Location from 'expo-location';
 
-export function sendSMS() {
+export function sendLocationSMS() {
   return async () => {
     const isAvailable = await SMS.isAvailableAsync();
     if (isAvailable) {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        console.log('Location permission denied');
+        return;
+      }
+
+      const locationData = await Location.getCurrentPositionAsync({});
+      const message = `Could you come to get me. I am at the location ${locationData.coords.latitude}° N, ${locationData.coords.longitude}° E`;
+      
       const { result } = await SMS.sendSMSAsync(
         ['+94770756891'],
-        'Could you come to get me. I am at the location 6.9271° N, 79.8612° E'
+        message
       );
       if (result) {
         console.log('SMS sent successfully.');
@@ -21,10 +31,10 @@ export function sendSMS() {
   };
 }
 
-const SendSMS = () => {
+const SendLocationSMS = () => {
   return (
     <View style={styles.container}>
-      <Button title="Send SMS" onPress={sendSMS()} />
+      <Button title="Send Location via SMS" onPress={sendLocationSMS()} />
     </View>
   );
 };
@@ -36,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SendSMS;
+export default SendLocationSMS;
