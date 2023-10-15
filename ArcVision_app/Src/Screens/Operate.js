@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
+import {sendSMS} from "../Components/SendSms";
 
 const ConnectWifi = () => {
   const [obstacle, setObstacle] = useState(null);
@@ -23,23 +24,27 @@ const ConnectWifi = () => {
     <View style={styles.container}>
       <Text style={styles.header}>ArcVision{obstacle}</Text>
 
-      <TouchableOpacity
-        style={styles.cambutton}
-        onPress={fetcheValueFromNodeMcu}>
-        <Text style={styles.buttonText}>CAMERA</Text>
-      </TouchableOpacity>
+      <ScrollView>
+      
+        <TouchableOpacity
+          style={styles.cambutton}
+          onPress={fetcheValueFromNodeMcu}>
+          <Text style={styles.buttonText}>CAMERA</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.emgbutton}
-        onPress={fetcheValueFromNodeMcu}>
-        <Text style={styles.buttonText}>EMEGERNCY</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.emgbutton}
+          onPress={sendSMS()}>
+          <Text style={styles.buttonText}>EMEGERNCY</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.setbutton}
-        onPress={fetcheValueFromNodeMcu}>
-        <Text style={styles.buttonText}>SETTINGS</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.setbutton}
+          onPress={fetcheValueFromNodeMcu}>
+          <Text style={styles.buttonText}>SETTINGS</Text>
+        </TouchableOpacity>
+
+      </ScrollView>
 
     </View>
 
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     color: "#333333",
     fontWeight: "bold",
-    marginTop: 30,
+    marginTop: 20,
     marginBottom: 90,
     textAlign: "center",
   },

@@ -26,7 +26,6 @@ const Load = () => {
         <LoadingScreen />
       ) : (
         <View>
-          {/* Your main content goes here */}
           <Operate />
         </View>
       )}

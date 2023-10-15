@@ -8,14 +8,16 @@ const ConnectWifi = () => {
 
   const fetchDataFromArcVision = async () => {
     try {
-      const response = await fetch('http://192.168.43.168/trigger'); // Updated URL
+      const response = await fetch('http://192.168.43.168/trigger');
       console.log(response);
       if (response.ok) {
-        setConnectionStatus(true); // Set the connection status to true
+        // connected
+        setConnectionStatus(true); 
         console.log("Connected to ArcVision");
 
         // Navigate to the LoadingScreen
         navigation.navigate("LoadingScreen");
+
       } else {
         console.log("Response not okay. Status code: ", response.status);
       }
@@ -30,12 +32,15 @@ const ConnectWifi = () => {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.header}>
         {connectionStatus ? "Connected" : "Not Connected"}
       </Text>
+
       <TouchableOpacity style={styles.button} onPress={fetchDataFromArcVision}>
         <Text style={styles.buttonText}>CONNECT</Text>
       </TouchableOpacity>
+      
     </View>
   );
 };
