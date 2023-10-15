@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
-import {sendSMS} from "../Components/SendSms";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView , TextInput } from "react-native";
+import {sendLocationSMS} from "../Components/SendSms";
 
-const ConnectWifi = () => {
+const Operate = () => {
   const [obstacle, setObstacle] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const fetcheValueFromNodeMcu = async () => {
     try {
@@ -15,6 +16,16 @@ const ConnectWifi = () => {
       console.log("Error fetching data from ArcVision", error);
     }
   };
+
+  const handleSettingsPress = () => {
+    // Handle the user's input here
+    console.log("Phone number entered:", phoneNumber);
+    // You can perform any further actions with the phone number here, e.g., send it to another file.
+
+    // Clear the input field after pressing the button
+    setPhoneNumber('');
+  };
+
 
   useEffect(() => {
     fetcheValueFromNodeMcu();
@@ -34,13 +45,13 @@ const ConnectWifi = () => {
 
         <TouchableOpacity
           style={styles.emgbutton}
-          onPress={sendSMS()}>
+          onPress={sendLocationSMS()}>
           <Text style={styles.buttonText}>EMEGERNCY</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.setbutton}
-          onPress={fetcheValueFromNodeMcu}>
+          onPress={handleSettingsPress}>
           <Text style={styles.buttonText}>SETTINGS</Text>
         </TouchableOpacity>
 
@@ -102,4 +113,4 @@ emgbutton: {
   },
 });
 
-export default ConnectWifi;
+export default Operate;
