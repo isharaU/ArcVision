@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView , TextInput } from "react-native";
-import {sendLocationSMS} from "../Components/SendSms";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput, Modal, Button } from "react-native";
+import { sendLocationSMS } from "../Components/SendSms";
+import { setNumberFunction } from "../Components/SetNumber";
 
 const Operate = () => {
   const [obstacle, setObstacle] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const fetcheValueFromNodeMcu = async () => {
     try {
       const response = await fetch(`http://192.168.43.168`);
       const data = await response.text();
-      setObstacle("\n"+data);
-      
+      setObstacle("\n" + data);
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
     }
   };
 
   const handleSettingsPress = () => {
-    // Handle the user's input here
-    console.log("Phone number entered:", phoneNumber);
-    // You can perform any further actions with the phone number here, e.g., send it to another file.
-
-    // Clear the input field after pressing the button
-    setPhoneNumber('');
+    setModalVisible(true);
   };
 
+  const handleSaveNumber = () => {
+    console.log("Phone number entered:", phoneNumber);
+    setNumberFunction(phoneNumber);
+    setPhoneNumber('');
+    setModalVisible(false);
+  };
 
   useEffect(() => {
     fetcheValueFromNodeMcu();
@@ -46,20 +48,40 @@ const Operate = () => {
         <TouchableOpacity
           style={styles.emgbutton}
           onPress={sendLocationSMS()}>
-          <Text style={styles.buttonText}>EMEGERNCY</Text>
+          <Text style={styles.buttonText}>EMERGENCY</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.setbutton}
           onPress={handleSettingsPress}>
-          <Text style={styles.buttonText}>SETTINGS</Text>
+          <Text style={styles.buttonText}>SET NUMBER</Text>
         </TouchableOpacity>
 
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={isModalVisible}
+          onRequestClose={() => {
+            setModalVisible(!isModalVisible);
+          }}
+        >
+          <View style={styles.modalView}>
+            <TextInput
+              style={styles.input}
+              placeholder="Enter New Phone Number"
+              keyboardType="numeric"
+              value={phoneNumber}
+              onChangeText={(text) => setPhoneNumber(text)}
+            />
+            <Button
+              title="Save Number"
+              onPress={handleSaveNumber}
+            />
+          </View>
+        </Modal>
+
       </ScrollView>
-
     </View>
-
-    
   );
 };
 
@@ -110,6 +132,24 @@ emgbutton: {
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
+  },
+
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    width: '80%',
+  },
+
+  modalView: {
+    marginTop: 50,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
   },
 });
 
