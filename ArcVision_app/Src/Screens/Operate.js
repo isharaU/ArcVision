@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView , TextInput } from "react-native";
-import {sendLocationSMS} from "../Components/SendSms";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
+import SettingsScreen from '../Components/SetNumber';
+import { sendLocationSMS } from "../Components/SendSms";
 
 const Operate = () => {
   const [obstacle, setObstacle] = useState(null);
+  const [isSettingsModalVisible, setSettingsModalVisible] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const fetcheValueFromNodeMcu = async () => {
     try {
       const response = await fetch(`http://192.168.43.168`);
       const data = await response.text();
-      setObstacle("\n"+data);
-      
+      setObstacle("\n" + data);
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
     }
   };
 
   const handleSettingsPress = () => {
-    // Handle the user's input here
-    console.log("Phone number entered:", phoneNumber);
-    // You can perform any further actions with the phone number here, e.g., send it to another file.
-
-    // Clear the input field after pressing the button
-    setPhoneNumber('');
+    setSettingsModalVisible(true);
   };
 
+  const handleSaveNumber = (number) => {
+    console.log("Phone number entered:", number);
+    // You can perform any further actions with the phone number here
+    setPhoneNumber(number);
+  };
 
   useEffect(() => {
     fetcheValueFromNodeMcu();
@@ -45,8 +46,8 @@ const Operate = () => {
 
         <TouchableOpacity
           style={styles.emgbutton}
-          onPress={sendLocationSMS()}>
-          <Text style={styles.buttonText}>EMEGERNCY</Text>
+          onPress={sendLocationSMS(phoneNumber)}>
+          <Text style={styles.buttonText}>EMERGENCY</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -55,11 +56,14 @@ const Operate = () => {
           <Text style={styles.buttonText}>SETTINGS</Text>
         </TouchableOpacity>
 
+        <SettingsScreen
+          isVisible={isSettingsModalVisible}
+          onClose={() => setSettingsModalVisible(false)}
+          onSaveNumber={handleSaveNumber}
+        />
+
       </ScrollView>
-
     </View>
-
-    
   );
 };
 
@@ -94,16 +98,15 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 85,
     borderRadius: 5,
-    
-},
+  },
 
-emgbutton: {
+  emgbutton: {
     backgroundColor: "#333333",
     paddingVertical: 20,
     paddingHorizontal: 76,
     borderRadius: 5,
     marginBottom: 40,
-},
+  },
 
   buttonText: {
     color: "#FFFFFF",
