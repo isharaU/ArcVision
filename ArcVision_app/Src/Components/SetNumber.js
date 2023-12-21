@@ -56,10 +56,10 @@ const styles = StyleSheet.create({
 
   saveButton: {
     width: '40%',
-},
+  },
   closeButton: {
-        width: '40%',
-    },
+    width: '40%',
+  },
 });
 
 export default SettingsScreen;
