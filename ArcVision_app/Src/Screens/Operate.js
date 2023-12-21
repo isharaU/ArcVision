@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
-import {sendSMS} from "../Components/SendSms";
+import SettingsScreen from '../Components/SetNumber';
+import { sendLocationSMS } from "../Components/SendSms";
 
-const ConnectWifi = () => {
+const Operate = () => {
   const [obstacle, setObstacle] = useState(null);
+  const [isSettingsModalVisible, setSettingsModalVisible] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const fetcheValueFromNodeMcu = async () => {
     try {
       const response = await fetch(`http://192.168.43.168`);
       const data = await response.text();
-      setObstacle("\n"+data);
-      
+      setObstacle("\n" + data);
     } catch (error) {
       console.log("Error fetching data from ArcVision", error);
     }
+  };
+
+  const handleSettingsPress = () => {
+    setSettingsModalVisible(true);
+  };
+
+  const handleSaveNumber = (number) => {
+    console.log("Phone number entered:", number);
+    // You can perform any further actions with the phone number here
+    setPhoneNumber(number);
   };
 
   useEffect(() => {
@@ -34,21 +46,24 @@ const ConnectWifi = () => {
 
         <TouchableOpacity
           style={styles.emgbutton}
-          onPress={sendSMS()}>
-          <Text style={styles.buttonText}>EMEGERNCY</Text>
+          onPress={sendLocationSMS(phoneNumber)}>
+          <Text style={styles.buttonText}>EMERGENCY</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.setbutton}
-          onPress={fetcheValueFromNodeMcu}>
+          onPress={handleSettingsPress}>
           <Text style={styles.buttonText}>SETTINGS</Text>
         </TouchableOpacity>
 
+        <SettingsScreen
+          isVisible={isSettingsModalVisible}
+          onClose={() => setSettingsModalVisible(false)}
+          onSaveNumber={handleSaveNumber}
+        />
+
       </ScrollView>
-
     </View>
-
-    
   );
 };
 
@@ -83,16 +98,15 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 85,
     borderRadius: 5,
-    
-},
+  },
 
-emgbutton: {
+  emgbutton: {
     backgroundColor: "#333333",
     paddingVertical: 20,
     paddingHorizontal: 76,
     borderRadius: 5,
     marginBottom: 40,
-},
+  },
 
   buttonText: {
     color: "#FFFFFF",
@@ -102,4 +116,4 @@ emgbutton: {
   },
 });
 
-export default ConnectWifi;
+export default Operate;
