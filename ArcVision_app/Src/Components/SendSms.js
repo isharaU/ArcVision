@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Button, TextInput, StyleSheet } from 'react-native';
 import * as SMS from 'expo-sms';
 import * as Location from 'expo-location';
 
-export function sendLocationSMS() {
+export function sendLocationSMS(phoneNumber) {
   return async () => {
     const isAvailable = await SMS.isAvailableAsync();
     if (isAvailable) {
@@ -17,7 +17,7 @@ export function sendLocationSMS() {
       const message = `Could you come to get me. I am at the location ${locationData.coords.latitude}° N, ${locationData.coords.longitude}° E`;
       
       const { result } = await SMS.sendSMSAsync(
-        ['+94770756891'],
+        [phoneNumber],
         message
       );
       if (result) {
@@ -32,9 +32,15 @@ export function sendLocationSMS() {
 }
 
 const SendLocationSMS = () => {
+  const [phoneNumber, setPhoneNumber] = useState('+94770756891'); // Initial phone number
+
   return (
     <View style={styles.container}>
-      <Button title="Send Location via SMS" onPress={sendLocationSMS()} />
+      <TextInput
+        value={phoneNumber}
+        onChangeText={(text) => setPhoneNumber(text)}
+      />
+      <Button title="Send Location via SMS" onPress={sendLocationSMS(phoneNumber)} />
     </View>
   );
 };

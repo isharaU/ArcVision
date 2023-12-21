@@ -1,4 +1,3 @@
-// SettingsScreen.js
 import React, { useState } from 'react';
 import { View, Modal, TextInput, Button, StyleSheet } from 'react-native';
 
@@ -56,10 +55,10 @@ const styles = StyleSheet.create({
 
   saveButton: {
     width: '40%',
-},
+  },
   closeButton: {
-        width: '40%',
-    },
+    width: '40%',
+  },
 });
 
 export default SettingsScreen;
