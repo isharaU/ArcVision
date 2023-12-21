@@ -24,7 +24,6 @@ const Operate = () => {
 
   const handleSaveNumber = (number) => {
     console.log("Phone number entered:", number);
-    // You can perform any further actions with the phone number here
     setPhoneNumber(number);
   };
 

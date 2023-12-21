@@ -1,4 +1,3 @@
-// SettingsScreen.js
 import React, { useState } from 'react';
 import { View, Modal, TextInput, Button, StyleSheet } from 'react-native';
 
