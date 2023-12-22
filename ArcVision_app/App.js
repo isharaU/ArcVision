@@ -11,9 +11,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="ConnectWifi">
-        {/* <Stack.Screen name="ConnectWifi" component={ConnectWifi} /> */}
-        <Stack.Screen name="Operate" component={Operate} />
+        <Stack.Screen name="ConnectWifi" component={ConnectWifi} />
         <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+        <Stack.Screen name="Operate" component={Operate} />
       </Stack.Navigator>
     </NavigationContainer>
   );
