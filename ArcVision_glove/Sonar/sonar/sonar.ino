@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  unsigned int distance = sonar.ping_cm(); // Send a ping and get the result in centimeters
+  unsigned int distance = sonar.ping_cm();
 
   if (distance >= 200) {
     Serial.println("Clear Path");

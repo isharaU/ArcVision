@@ -10,7 +10,7 @@ const Operate = () => {
 
   const fetcheValueFromNodeMcu = async () => {
     try {
-      const response = await fetch(`http://192.168.43.168`);
+      const response = await fetch(`http://192.168.43.207`);
       const data = await response.text();
       setObstacle("\n" + data);
     } catch (error) {
@@ -37,11 +37,11 @@ const Operate = () => {
 
       <ScrollView>
       
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.cambutton}
           onPress={fetcheValueFromNodeMcu}>
           <Text style={styles.buttonText}>CAMERA</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <TouchableOpacity
           style={styles.emgbutton}
