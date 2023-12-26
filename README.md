@@ -1,25 +1,36 @@
 # ArcVision
-## Obstacle Detection and Object Recognition Device for People with Vision Impairments
-_Arc Vision empowers visually impaired individuals through two core components: the Arc Vision App and Glove. The app, built with React Native Expo, connects seamlessly to the Glove, equipped with sonar sensors and an action button. Users can capture images, receive image recognition descriptions, and send quick emergency alerts. With Wi-Fi connectivity and customizable settings, Arc Vision enhances independence and security for the visually impaired._
-
-## Usability Survey
-_The usability of this device with a smartphone may be difficult to assess because visually impaired people may not be able to use a smartphone. To address this challenge, I conducted a survey to gather feedback from people who know visually impaired people.
-<br>
-Reading time : Less than 3 minutes_
-
-- [Kindly participate in the survey by clicking on the provided link.](https://docs.google.com/forms/d/e/1FAIpQLScswZ6K9khgDUv91IlPMREqCc3p0st4eBmHLQdbLN4Y1sMjbw/viewform?usp=sf_link)
-- [Please click on the provided link to view the results.](https://docs.google.com/spreadsheets/d/18eGguSmHQaHVkyON_fmgkVyNy7yxjhFAgRzveZI3zvw/edit?usp=sharing)
+## Obstacle Detection Device for People with Vision Impairments
+_Arc Vision empowers visually impaired individuals through two core components: the Arc Vision App and Glove. The app, built with React Native Expo, connects seamlessly to the Glove, equipped with sonar sensors and IR sensors. With Wi-Fi connectivity and customizable settings, Arc Vision enhances independence and security for the visually impaired._
   
 ## Overview
-#### Project Goals
-ArcVision's main objective is to:
- + Create seamless Wi-Fi connectivity between the mobile app and the Arc Vision Glove.
- + Enable users to capture images using the app's camera functionality.
- + Implement image recognition technology to generate textual descriptions of captured images.
- + Facilitate rapid location-based emergency alerts to pre-saved mobile contacts.
- + Equip the Arc Vision Glove with a sonar sensor to detect obstacles.
- + Ensure real-time communication between the Glove and the mobile app for obstacle detection and emergency alerts.
- + Enhance the mobility and safety of visually impaired individuals by combining technology and real-time communication.
+
+### Hardware
+
+The hardware component comprises a glove embedded with a sonar sensor and an IR sensor, both controlled by the ESP8266 microcontroller. The glove features a vibrating motor that activates when an obstacle is detected. The utilization of two sensors aims to minimize noise and enhance the accuracy of object detection.
+
+### Software
+
+The software component is built using React Native Expo. The ArcVision app establishes a connection with the glove (ESP8266) via WiFi. The app's home screen provides access to two main functionalities: Settings and Emergency. In the Settings section, users can set an emergency phone number. When the Emergency button is pressed, the app fetches the user's current location using the mobile phone's GPS and sends the coordinates to the specified emergency phone number via SMS.
+
+## Getting Started
+
+To use ArcVision, follow these steps:
+
+1. **Hardware Setup:**
+   - Wear the glove-like device on your hand.
+   - Ensure a proper connection between the glove and the app via WiFi.
+
+2. **Software Usage:**
+   - Open the ArcVision app.
+   - Navigate through the home screen with two main buttons: Settings and Emergency.
+
+3. **Settings:**
+   - Set an emergency phone number for quick access.
+
+4. **Emergency:**
+   - In case of an emergency, press the Emergency button to send your current location to the specified phone number via SMS.
+
+
 
 ## Key Features
 
@@ -27,53 +38,30 @@ ArcVision's main objective is to:
    - The Arc Vision App initiates a Wi-Fi connection to the Arc Vision Glove, establishing a seamless link between the user and the wearable device.
 
 2. **Real-time Obstacle Detection**
-   - Equipped with sonar sensors and video camera modules, Arc Vision detects obstacles in real time, providing users with the assurance they need to navigate their surroundings confidently.
+   - Equipped with sonar sensors and IR sensors, Arc Vision detects obstacles in real-time, giving users the assurance they need to navigate their surroundings confidently.
 
 3. **Immediate Feedback**
-   - Upon detecting obstacles, Arc Vision offers immediate feedback through dual channels. A Bluetooth connection pairs with earphones to deliver auditory alerts regarding obstacle presence and location. Simultaneously, a built-in vibrator provides tactile alerts, enhancing user awareness.
+   - Upon detecting obstacles, Arc Vision offers immediate feedback through a built-in vibrator that provides tactile alerts, enhancing user awareness.
 
 4. **User-Friendly Design**
-   - Compact and Portable: The Arc Vision Glove is designed for convenience, with a compact form factor measuring between 20 to 30 cm in length, making it easy to carry and handle.
-
-5. **Enhanced Mobility and Independence**
-   - By providing reliable obstacle detection and immediate feedback, Arc Vision empowers individuals with vision impairments to move independently, boosting their confidence and overall quality of life.
+   - Compact and Portable: The Arc Vision Glove is designed for convenience, with a compact form factor measuring 20 to 30 cm long, making it easy to carry and handle.
 
 Arc Vision is dedicated to revolutionizing the daily experiences of visually impaired individuals, allowing them to navigate the world with newfound independence and security.
 _By providing reliable obstacle detection and immediate feedback, ArcVision empowers individuals with vision impairments to move independently, boosting their confidence and overall quality of life._
 
-## Usage
-
-Arc Vision App and Glove are designed with user-friendliness in mind, ensuring individuals with visual impairments can easily integrate them into their daily routines. Here's how to effectively use Arc Vision:
-
-1. **Connect to Glove**
-   - Open the Arc Vision App and tap the "Connect" button to establish a Wi-Fi connection with the Arc Vision Glove. Wait for the successful connection notification.
-
-2. **Navigate Through App**
-   - Once connected, you can navigate through the app using buttons or touch screen gestures.
-
-3. **Capture Images**
-   - In the "Camera" section, use the app's camera to capture images of your surroundings.
-
-4. **Generate Image Descriptions**
-   - Arc Vision's image recognition technology will generate textual descriptions of captured images, which are read aloud to you for understanding.
-
-5. **Send Emergency Alerts**
-   - In the "Emergency" section, you can send location-based emergency alerts to pre-saved mobile contacts via SMS.
-
-6. **Customize Settings**
-   - Customize app settings, including configuring your emergency contact information, in the "Settings" section.
-
-7. **Glove Features**
-   - The Arc Vision Glove features a sonar sensor to detect obstacles and a push button for user-initiated actions.
-     
-8. **Initiate Emergency Signal**
-   - Press the glove's push button for 5 seconds to initiate an emergency signal, sending your location details to your emergency contact.
-
-By following these steps, you can effectively use the Arc Vision App and Glove to enhance your independence and safety in daily life.
+## Usability Survey Results
+We conducted a usability survey involving medical and engineering students to gather insights into the effectiveness of ArcVision. Here are some key findings:
 
 ## Demo
-#### Video and images demonstrating the project in action will be included here.
+#### IR sensor.
 https://github.com/isharaU/ArcVision/assets/125251580/67810cfd-1d4c-4e08-9209-3853a0610246
+
+#### ArcVision App
+https://github.com/isharaU/ArcVision/assets/125251580/248dbd07-5b11-494c-a1f1-93be14cc4db1
+
+#### Glove at final demonstrations
+![glove](https://github.com/isharaU/ArcVision/assets/125251580/0624c6bf-4f9e-47bf-8e39-1b855f8a9a8c)
+
 
 ## Clone the Repository
 #### To get started with ArcVision and explore the project's source code, follow these steps to clone the repository to your local development environment.
