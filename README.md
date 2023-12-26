@@ -50,7 +50,14 @@ Arc Vision is dedicated to revolutionizing the daily experiences of visually imp
 _By providing reliable obstacle detection and immediate feedback, ArcVision empowers individuals with vision impairments to move independently, boosting their confidence and overall quality of life._
 
 ## Usability Survey Results
-We conducted a usability survey involving medical and engineering students to gather insights into the effectiveness of ArcVision. Here are some key findings:
+I conducted a usability survey involving medical and engineering students to gather insights into the effectiveness of ArcVision. Here are some key findings:
+
+![image](https://github.com/isharaU/ArcVision/assets/125251580/8674e04f-f285-4d4a-9d14-29781d939dd2)
+
+![image](https://github.com/isharaU/ArcVision/assets/125251580/b3dfc1f3-37dc-4ebc-bdd8-0621f37c6344)
+
+![image](https://github.com/isharaU/ArcVision/assets/125251580/16b11a32-b65d-4325-8e1a-7aa8fa1eb258)
+
 
 ## Demo
 #### IR sensor.
